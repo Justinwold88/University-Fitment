@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tire Fitment Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="main-header">
@@ -31,248 +34,255 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
             <!-- Finder Section -->
             <section class="finder-section" id="finder">
                 <div class="section-header">
-                    <h2 class="section-title">University's Tire Size Finder</h2>
+                    <h2 class="section-title">OE Tire Specifications</h2>
                     <p class="section-subtitle">
-                        Select your vehicle year, make, and model to find the correct tire specifications.
+                        Enter the numbers from your tire sidewall to find secure replacement options.
                     </p>
                 </div>
 
                 <div class="finder-card">
-                    <div class="finder-steps">
-                        <div class="step active">
-                            <div class="step-number">1</div>
-                            <div class="step-label">Select Year</div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-label">Choose Make</div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-label">Pick Model</div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <div class="step-label">Get Results</div>
-                        </div>
-                    </div>
-
                     <div class="vehicle-selector">
                         <div class="selector-group">
                             <div class="select-wrapper">
-                                <label for="year" class="select-label">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    Vehicle Year
+                                <label for="rim-diameter" class="select-label">
+                                    <i class="fas fa-circle-notch"></i>
+                                    Rim Diameter (in)
+                                    <span class="help-tip"
+                                        title="Found after the 'R' on tire sidewall (e.g., 17 in 225/55R17)">?</span>
                                 </label>
-                                <select id="year" class="form-select">
-                                    <option value="">Select Year</option>
-                                    <!-- Years populated by JS -->
-                                </select>
+                                <input type="number" id="rim-diameter" class="form-select" placeholder="e.g., 17"
+                                    step="0.5">
                             </div>
                             <div class="select-wrapper">
-                                <label for="make" class="select-label">
-                                    <i class="fas fa-car"></i>
-                                    Vehicle Make
+                                <label for="section-width" class="select-label">
+                                    <i class="fas fa-tire"></i>
+                                    Tire Section Width (mm)
+                                    <span class="help-tip"
+                                        title="First number on tire sidewall (e.g., 225 in 225/55R17)">?</span>
                                 </label>
-                                <select id="make" class="form-select" disabled>
-                                    <option value="">Select Make</option>
-                                </select>
+                                <input type="number" id="section-width" class="form-select" placeholder="e.g., 225">
                             </div>
                             <div class="select-wrapper">
-                                <label for="model" class="select-label">
-                                    <i class="fas fa-cog"></i>
-                                    Vehicle Model
+                                <label for="aspect-ratio" class="select-label">
+                                    <i class="fas fa-percent"></i>
+                                    Tire Aspect Ratio (%)
+                                    <span class="help-tip"
+                                        title="Second number on tire sidewall (e.g., 55 in 225/55R17)">?</span>
                                 </label>
-                                <select id="model" class="form-select" disabled>
-                                    <option value="">Select Model</option>
-                                </select>
+                                <input type="number" id="aspect-ratio" class="form-select" placeholder="e.g., 55">
                             </div>
                         </div>
+
+                        <!-- Hidden defaults (used if advanced not provided) -->
+                        <input type="hidden" id="default-rim-width" value="7.5">
+                        <input type="hidden" id="default-rim-offset" value="40">
 
                         <div class="finder-actions">
-                            <button class="btn btn-primary btn-find" id="find-button">
-                                <i class="fas fa-search"></i>
-                                Find Tire Size
-                            </button>
-                            <button class="btn btn-secondary" id="reset-button">
-                                <i class="fas fa-redo"></i>
-                                Reset
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Results Section -->
-            <section class="results-section" id="results">
-                <div class="section-header">
-                    <h2 class="section-title">Tire Specifications</h2>
-                    <p class="section-subtitle">
-                        Detailed tire and wheel specifications for your selected vehicle.
-                    </p>
-                </div>
-
-                <div class="results-card" id="results-container"">
-                    <div class="vehicle-header">
-                        <div class="vehicle-icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <div class="vehicle-info">
-                            <h3 id="vehicle-title">Select a Vehicle</h3>
-                            <p id="vehicle-subtitle">
-                                Choose a vehicle above to see tire specifications
-                            </p>
-                        </div>
-                        <div class="api-status-badge" id="api-status">
-                            <i class="fas fa-wifi"></i>
-                            <span>API: Online</span>
-                        </div>
-                    </div>
-
-                    <div class="specifications-grid">
-                        <!-- Tire Size Card -->
-                        <div class="spec-card primary-spec">
-                            <div class="spec-header">
-                                <i class="fas fa-tire"></i>
-                                <h4>OEM Tire Size</h4>
-                            </div>
-                            <div class="spec-content">
-                                <div class="tire-size-display" id="primary-size">
-                                    235/45R18
-                                </div>
-                                <div class="size-breakdown" id="size-breakdown">
-                                    <div class="breakdown-item">
-                                        <div class="value">235</div>
-                                        <div class="label">Width</div>
+                            <div class="advanced-toggle">
+                                <button type="button" class="btn btn-outline" id="advanced-toggle-btn">
+                                    <i class="fas fa-cog"></i> Advanced
+                                </button>
+                                <div class="advanced-panel" id="advanced-panel"">
+                                    <div class=" selector-group">
+                                    <div class="select-wrapper">
+                                        <label for="rim-width-advanced" class="select-label">
+                                            <i class="fas fa-arrows-alt-h"></i>
+                                            Rim Width (in)
+                                            <span class="help-tip"
+                                                title="Optional; leave blank to use default (7.5)">?</span>
+                                        </label>
+                                        <input type="number" id="rim-width-advanced" class="form-select"
+                                            placeholder="Optional" step="0.5">
                                     </div>
-                                    <div class="breakdown-item">
-                                        <div class="value">45%</div>
-                                        <div class="label">Aspect Ratio</div>
-                                    </div>
-                                    <div class="breakdown-item">
-                                        <div class="value">18"</div>
-                                        <div class="label">Rim Diameter</div>
-                                    </div>
-                                    <div class="breakdown-item">
-                                        <div class="value">106mm</div>
-                                        <div class="label">Sidewall</div>
+                                    <div class="select-wrapper">
+                                        <label for="rim-offset-advanced" class="select-label">
+                                            <i class="fas fa-arrows-alt"></i>
+                                            Rim Offset (mm)
+                                            <span class="help-tip"
+                                                title="Optional; leave blank to use default (40)">?</span>
+                                        </label>
+                                        <input type="number" id="rim-offset-advanced" class="form-select"
+                                            placeholder="Optional">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Wheel Specs Card -->
-                        <div class="spec-card">
-                            <div class="spec-header">
-                                <i class="fas fa-cog"></i>
-                                <h4>Wheel Specifications</h4>
-                            </div>
-                            <div class="spec-content">
-                                <div class="spec-item">
-                                    <span class="label">Rim Diameter</span>
-                                    <span class="value" id="rim-diameter">18"</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="label">Rim Width</span>
-                                    <span class="value" id="rim-width">9.0"</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="label">Bolt Pattern</span>
-                                    <span class="value" id="bolt-pattern">5x114.3</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="label">Offset</span>
-                                    <span class="value" id="offset">+40mm</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tire Specs Card -->
-                        <div class="spec-card">
-                            <div class="spec-header">
-                                <i class="fas fa-tire-pressure-warning"></i>
-                                <h4>Tire Specifications</h4>
-                            </div>
-                            <div class="spec-content">
-                                <div class="spec-item">
-                                    <span class="label">Load Index</span>
-                                    <span class="value" id="load-index">94</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="label">Speed Rating</span>
-                                    <span class="value" id="speed-rating">V (149 mph)</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="label">Pressure (Front)</span>
-                                    <span class="value" id="pressure-front">35 PSI</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="label">Pressure (Rear)</span>
-                                    <span class="value" id="pressure-rear">35 PSI</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Additional Specs Card -->
-                        <div class="spec-card">
-                            <div class="spec-header">
-                                <i class="fas fa-ruler-combined"></i>
-                                <h4>Additional Specifications</h4>
-                            </div>
-                            <div class="spec-content">
-                                <div class="spec-item">
-                                    <span class="label">Overall Diameter</span>
-                                    <span class="value" id="overall-diameter">668mm</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="label">Revs per Mile</span>
-                                    <span class="value" id="revs-per-mile">763</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Alternative Sizes Card -->
-                        <div class="spec-card">
-                            <div class="spec-header">
-                                <i class="fas fa-exchange-alt"></i>
-                                <h4>Alternative Sizes</h4>
-                            </div>
-                            <div class="spec-content">
-                                <ul class="alternate-sizes-list" id="alternate-sizes">
-                                    <li>225/45R18</li>
-                                    <li>245/40R18</li>
-                                    <li>235/40R19</li>
-                                    <li>225/40R19</li>
-                                </ul>
-                                <p class="alternate-note">
-                                    These sizes are compatible with your vehicle
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="results-actions">
-                        <button class="btn btn-outline" id="print-button">
-                            <i class="fas fa-print"></i>
-                            Print Specs
+                        <button class="btn btn-primary btn-find" id="find-button">
+                            <i class="fas fa-search"></i>
+                            Get Replacement Options
                         </button>
-                        <button class="btn btn-outline" id="save-button">
-                            <i class="fas fa-save"></i>
-                            Save Fitment
-                        </button>
-                        <button class="btn btn-primary" id="share-button">
-                            <i class="fas fa-share"></i>
-                            Share Results
+                        <button class="btn btn-secondary" id="reset-button">
+                            <i class="fas fa-redo"></i>
+                            Reset
                         </button>
                     </div>
                 </div>
-            </section>
+        </div>
+        </section>
+
+        <!-- Upsteps Options Section -->
+        <section class="upsteps-section" id="upsteps-section" ">
+                <div class=" section-header">
+            <h2 class="section-title">Secure Wheel Replacement Options</h2>
+            <p class="section-subtitle">
+                Alternative rim and tire combinations derived from factory sizes
+            </p>
+            </div>
+            <div class="upsteps-card" id="upsteps-container">
+                <div class="loading-options">Loading options...</div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="results">
+            <div class="section-header">
+                <h2 class="section-title">Tire Specifications</h2>
+                <p class="section-subtitle">
+                    Detailed tire and wheel specifications for your selected vehicle.
+                </p>
+            </div>
+
+            <div class="results-card" id="results-container">
+                <div class="vehicle-header">
+                    <div class="vehicle-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="vehicle-info">
+                        <h3 id="vehicle-title">Enter Your OE Specs</h3>
+                        <p id="vehicle-subtitle">
+                            Fill in the numbers from your tire sidewall
+                        </p>
+                    </div>
+                    <div class="api-status-badge" id="api-status">
+                        <i class="fas fa-wifi"></i>
+                        <span>API: Online</span>
+                    </div>
+                </div>
+
+                <div class="specifications-grid">
+                    <!-- Tire Size Card -->
+                    <div class="spec-card primary-spec">
+                        <div class="spec-header">
+                            <i class="fas fa-tire"></i>
+                            <h4>OE Tire Size</h4>
+                        </div>
+                        <div class="spec-content">
+                            <div class="tire-size-display" id="primary-size">
+                                —
+                            </div>
+                            <div class="size-breakdown" id="size-breakdown">
+                                <div class="breakdown-item">
+                                    <div class="value">—</div>
+                                    <div class="label">Width</div>
+                                </div>
+                                <div class="breakdown-item">
+                                    <div class="value">—</div>
+                                    <div class="label">Aspect Ratio</div>
+                                </div>
+                                <div class="breakdown-item">
+                                    <div class="value">—</div>
+                                    <div class="label">Rim Diameter</div>
+                                </div>
+                                <div class="breakdown-item">
+                                    <div class="value">—</div>
+                                    <div class="label">Sidewall</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wheel Specs Card -->
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fas fa-cog"></i>
+                            <h4>Wheel Specifications</h4>
+                        </div>
+                        <div class="spec-content">
+                            <div class="spec-item">
+                                <span class="label">Rim Diameter</span>
+                                <span class="value" id="rim-diameter">—</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Rim Width</span>
+                                <span class="value" id="rim-width">—</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Bolt Pattern</span>
+                                <span class="value" id="bolt-pattern">—</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Offset</span>
+                                <span class="value" id="offset">—</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tire Specs Card -->
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fas fa-tire-pressure-warning"></i>
+                            <h4>Tire Specifications</h4>
+                        </div>
+                        <div class="spec-content">
+                            <div class="spec-item">
+                                <span class="label">Load Index</span>
+                                <span class="value" id="load-index">—</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Speed Rating</span>
+                                <span class="value" id="speed-rating">—</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Pressure (Front)</span>
+                                <span class="value" id="pressure-front">—</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Pressure (Rear)</span>
+                                <span class="value" id="pressure-rear">—</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Specs Card -->
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fas fa-ruler-combined"></i>
+                            <h4>Additional Specifications</h4>
+                        </div>
+                        <div class="spec-content">
+                            <div class="spec-item">
+                                <span class="label">Overall Diameter</span>
+                                <span class="value" id="overall-diameter">—</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Revs per Mile</span>
+                                <span class="value" id="revs-per-mile">—</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn btn-outline" id="print-button">
+                        <i class="fas fa-print"></i>
+                        Print Specs
+                    </button>
+                    <button class="btn btn-outline" id="save-button">
+                        <i class="fas fa-save"></i>
+                        Save Fitment
+                    </button>
+                    <button class="btn btn-primary" id="share-button">
+                        <i class="fas fa-share"></i>
+                        Share Results
+                    </button>
+                </div>
+            </div>
+        </section>
         </div>
     </main>
 
@@ -327,16 +337,231 @@
         <p>Loading vehicle data...</p>
     </div>
 
-    <!-- External Scripts at the bottom -->
+    <!-- External Scripts -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
-    
-    <!-- Your app.js -->
-    <script src="app.js"></script>
-    
-    <!-- Initialize app -->
-    <script src="init.js"></script>
+
+    <!-- Main Application Script -->
+    <script>
+        (function () {
+            'use strict';
+
+            console.log("App.js loading...");
+
+            const WHEEL_SIZE_API_KEY = 'aacf06f99737a3a99963870c871a5eaf';
+            const WHEEL_SIZE_BASE_URL = 'https://api.wheel-size.com/v2';
+
+            function buildWheelSizeAPIUrl(endpoint, params = {}) {
+                const url = new URL(`${WHEEL_SIZE_BASE_URL}${endpoint}`);
+                url.searchParams.append('user_key', WHEEL_SIZE_API_KEY);
+                Object.keys(params).forEach(key => {
+                    if (params[key] !== undefined && params[key] !== null && params[key] !== '') {
+                        url.searchParams.append(key, params[key]);
+                    }
+                });
+                return url.toString();
+            }
+
+            function showLoading(show) {
+                const overlay = document.getElementById('loading-overlay');
+                if (overlay) overlay.style.display = show ? 'flex' : 'none';
+            }
+
+            function showInfoMessage(message, isError = false) {
+                const existing = document.getElementById('info-message');
+                if (existing) existing.remove();
+
+                const el = document.createElement('div');
+                el.id = 'info-message';
+                el.className = 'info-message';
+                el.innerHTML = `
+                    <div class="info-message-content">
+                        <div class="info-message-text">
+                            <strong><i class="fas fa-info-circle"></i> ${isError ? 'Error' : 'Note'}</strong>
+                            <p>${message}</p>
+                        </div>
+                        <button class="info-message-close"><i class="fas fa-times"></i></button>
+                    </div>
+                `;
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 8000);
+            }
+
+            function updateSizeBreakdown(tireSize) {
+                const breakdown = document.getElementById('size-breakdown');
+                if (!breakdown) return;
+                const match = tireSize.match(/(\d+)\/(\d+)R(\d+)/);
+                if (match) {
+                    const width = match[1];
+                    const aspect = match[2];
+                    const rim = match[3];
+                    const sidewall = Math.round((width * aspect) / 100);
+                    breakdown.innerHTML = `
+                        <div class="breakdown-item">
+                            <div class="value">${width}</div>
+                            <div class="label">Width</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="value">${aspect}%</div>
+                            <div class="label">Aspect Ratio</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="value">${rim}"</div>
+                            <div class="label">Rim Diameter</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="value">${sidewall}mm</div>
+                            <div class="label">Sidewall</div>
+                        </div>
+                    `;
+                }
+            }
+
+            function showResults() {
+                const container = document.getElementById('results-container');
+                if (container) {
+                    container.style.display = 'block';
+                    setTimeout(() => container.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+                }
+            }
+
+            function resetForm() {
+                document.getElementById('rim-diameter').value = '';
+                document.getElementById('section-width').value = '';
+                document.getElementById('aspect-ratio').value = '';
+                document.getElementById('rim-width-advanced').value = '';
+                document.getElementById('rim-offset-advanced').value = '';
+
+                const resultsContainer = document.getElementById('results-container');
+                if (resultsContainer) resultsContainer.style.display = 'none';
+                const upstepsSection = document.getElementById('upsteps-section');
+                if (upstepsSection) upstepsSection.style.display = 'none';
+            }
+
+            function updateDisplayWithManualOE(rimDiameter, rimWidth, rimOffset, sectionWidth, aspectRatio) {
+                const tireSize = `${sectionWidth}/${aspectRatio}R${rimDiameter}`;
+                document.getElementById('primary-size').textContent = tireSize;
+                updateSizeBreakdown(tireSize);
+
+                document.getElementById('rim-diameter').textContent = `${rimDiameter}"`;
+                document.getElementById('rim-width').textContent = `${rimWidth}"`;
+                document.getElementById('bolt-pattern').textContent = '—';
+                document.getElementById('offset').textContent = `${rimOffset > 0 ? '+' : ''}${rimOffset}mm`;
+
+                const vehicleTitle = document.getElementById('vehicle-title');
+                if (vehicleTitle) vehicleTitle.textContent = 'Manual OE Specifications';
+                const vehicleSub = document.getElementById('vehicle-subtitle');
+                if (vehicleSub) vehicleSub.textContent = 'Entered by you';
+                const apiStatus = document.getElementById('api-status');
+                if (apiStatus) apiStatus.style.display = 'none';
+            }
+
+            async function fetchUpstepsOptions(rimDiameter, rimWidth, rimOffset, sectionWidth, aspectRatio) {
+                const url = buildWheelSizeAPIUrl('/upsteps/', {
+                    rim_diameter: rimDiameter,
+                    rim_width: rimWidth,
+                    rim_offset: rimOffset,
+                    section_width: sectionWidth,
+                    aspect_ratio: aspectRatio,
+                    steps: 3,
+                    s_max: 10,
+                    do_max: 5
+                });
+
+                console.log('API URL:', url);
+
+                try {
+                    const response = await fetch(url);
+                    console.log('Response status:', response.status);
+                    const data = await response.json();
+                    console.log('Full API response:', data);
+                    // Return the data array (assuming it's under data.data)
+                    return data.data || [];
+                } catch (error) {
+                    console.error('Upsteps fetch error:', error);
+                    return null;
+                }
+            }
+
+            console.log('Options received:', options);
+
+
+            async function handleSearch() {
+                const rimDiameter = parseFloat(document.getElementById('rim-diameter').value);
+                const sectionWidth = parseInt(document.getElementById('section-width').value);
+                const aspectRatio = parseInt(document.getElementById('aspect-ratio').value);
+
+                // Read advanced values (optional)
+                let rimWidth = parseFloat(document.getElementById('rim-width-advanced').value);
+                let rimOffset = parseInt(document.getElementById('rim-offset-advanced').value);
+
+                // Fallback to hidden defaults if advanced not provided
+                if (isNaN(rimWidth)) rimWidth = parseFloat(document.getElementById('default-rim-width').value);
+                if (isNaN(rimOffset)) rimOffset = parseInt(document.getElementById('default-rim-offset').value);
+
+                if (isNaN(rimDiameter) || isNaN(sectionWidth) || isNaN(aspectRatio)) {
+                    showInfoMessage('Please fill in all visible fields (Rim Diameter, Section Width, Aspect Ratio).', true);
+                    return;
+                }
+
+                if (isNaN(rimWidth) || isNaN(rimOffset)) {
+                    showInfoMessage('Configuration error. Please contact support.', true);
+                    return;
+                }
+
+                showLoading(true);
+
+                updateDisplayWithManualOE(rimDiameter, rimWidth, rimOffset, sectionWidth, aspectRatio);
+                showResults();
+
+                const options = await fetchUpstepsOptions(rimDiameter, rimWidth, rimOffset, sectionWidth, aspectRatio);
+                renderUpstepsOptions(options);
+
+                showLoading(false);
+            }
+
+            function init() {
+                const findBtn = document.getElementById('find-button');
+                const resetBtn = document.getElementById('reset-button');
+                const printBtn = document.getElementById('print-button');
+                const advancedBtn = document.getElementById('advanced-toggle-btn');
+                const advancedPanel = document.getElementById('advanced-panel');
+
+                if (findBtn) findBtn.addEventListener('click', handleSearch);
+                if (resetBtn) resetBtn.addEventListener('click', resetForm);
+                if (printBtn) printBtn.addEventListener('click', () => window.print());
+
+                // Advanced toggle
+                if (advancedBtn && advancedPanel) {
+                    advancedBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const isVisible = advancedPanel.style.display === 'block';
+                        advancedPanel.style.display = isVisible ? 'none' : 'block';
+                    });
+                    document.addEventListener('click', (e) => {
+                        if (!advancedBtn.contains(e.target) && !advancedPanel.contains(e.target)) {
+                            advancedPanel.style.display = 'none';
+                        }
+                    });
+                }
+
+                // Close info messages on click
+                document.addEventListener('click', (e) => {
+                    const closeBtn = e.target.closest('.info-message-close');
+                    if (closeBtn) {
+                        const msg = closeBtn.closest('.info-message');
+                        if (msg) msg.remove();
+                    }
+                });
+
+                console.log('App initialized (manual input with advanced options)');
+            }
+
+            document.addEventListener('DOMContentLoaded', init);
+        })();
+    </script>
 </body>
+
 </html>

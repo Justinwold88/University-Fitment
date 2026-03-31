@@ -1,9 +1,0 @@
-{
-    "CodeGPT.apiKey": "DeepSeek",
-    "notebook.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "github.copilot.chat.completionsFetcher": "node-fetch",
-    "github.copilot.chat.nesFetcher": "node-fetch",
-    "github.copilot.chat.azureAuthType": "apiKey",
-    "python-envs.pythonProjects": []
-}

@@ -1,4 +1,6 @@
-/* Reset & Base Styles */
+/* -----------------------------------------
+   Reset & Base Styles (Mobile First)
+----------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +9,7 @@
 
 body {
     font-family: "Inter", sans-serif;
-    color: yellow;
+    color: #ff0000;
     line-height: 1.6;
     background-color: #000000;
     min-height: 100vh;
@@ -15,38 +17,41 @@ body {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
     width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
 }
 
-/* Typography */
+/* -----------------------------------------
+   Typography
+----------------------------------------- */
 h1, h2, h3, h4 {
     font-weight: 600;
     line-height: 1.2;
-    color: yellow;
+    color: #ff0000;
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
 .section-subtitle {
-    font-size: 1rem;
-    color: yellow;
-    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: #ff0000;
+    margin-bottom: 1.5rem;
 }
 
-/* Header */
+/* -----------------------------------------
+   Header
+----------------------------------------- */
 .main-header {
     background-color: #000000;
-    box-shadow: 0 2px 10px yellow;
+    box-shadow: 0 2px 10px #ff0000;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid #ff0000;
     padding: 0 1rem;
 }
 
@@ -54,9 +59,9 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0;
     flex-wrap: wrap;
     gap: 1rem;
+    padding: 0.75rem 0;
 }
 
 .logo {
@@ -68,8 +73,8 @@ h1, h2, h3, h4 {
 }
 
 .icon-logo {
-    font-size: 1.8rem;
-    color: yellow;
+    font-size: 1.5rem;
+    color: #ff0000;
 }
 
 .logo-text {
@@ -79,14 +84,14 @@ h1, h2, h3, h4 {
 }
 
 .logo-primary {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
-    color: yellow;
+    color: #ff0000;
 }
 
 .logo-secondary {
-    font-size: 0.9rem;
-    color: yellow;
+    font-size: 0.8rem;
+    color: #ff0000;
     font-weight: 500;
 }
 
@@ -99,9 +104,9 @@ h1, h2, h3, h4 {
 
 .nav-link {
     text-decoration: none;
-    color: yellow;
+    color: #ff0000;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     padding: 0.5rem;
     position: relative;
     transition: color 0.3s ease;
@@ -112,12 +117,12 @@ h1, h2, h3, h4 {
 }
 
 .nav-link i {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: yellow;
+    color: #ff0000;
 }
 
 .nav-link.active::after {
@@ -127,202 +132,51 @@ h1, h2, h3, h4 {
     left: 0;
     right: 0;
     height: 2px;
-    background-color: yellow;
+    background-color: #ff0000;
 }
 
 .header-actions {
     margin-left: auto;
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, #000000 0%, #151515 100%);
-    padding: 2rem 0;
-    border-bottom: 1px solid yellow;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: center;
-    text-align: center;
-}
-
-.hero-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-    font-size: 1rem;
-    color: yellow;
-    margin-bottom: 1.5rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-stats {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.stat {
-    text-align: center;
-    min-width: 80px;
-}
-
-.stat-number {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: yellow;
-    margin-bottom: 0.25rem;
-}
-
-.stat-label {
-    font-size: 0.8rem;
-    color: yellow;
-}
-
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.tire-visual {
-    background: #000000;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 30px yellow;
-    border: 2px solid yellow;
-}
-
-.icon-hero {
-    font-size: 3rem;
-    color: yellow;
-    margin-bottom: 0.5rem;
-}
-
-.tire-spec {
-    font-size: 1rem;
-    font-weight: 600;
-    color: yellow;
-}
-
-/* Finder Section */
+/* -----------------------------------------
+   Finder Section
+----------------------------------------- */
 .finder-section {
     padding: 2rem 0;
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid #ff0000;
 }
 
 .finder-card {
     background: #000000;
     border-radius: 12px;
-    box-shadow: 0 4px 20px yellow;
-    padding: 1.5rem;
-    max-width: 100%;
-    margin: 0 auto;
-    border: 1px solid yellow;
-}
-
-.finder-steps {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-    position: relative;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.finder-steps::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 40px;
-    right: 40px;
-    height: 2px;
-    background-color: #000000;
-    z-index: 1;
-}
-
-.step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    flex: 1;
-    min-width: 70px;
-}
-
-.step-number {
-    width: 40px;
-    height: 40px;
-    background-color: yellow;
-    color: rgb(0, 0, 0);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.step.active .step-number {
-    background-color: yellow;
-    color: #000000;
-    box-shadow: 0 4px 12px yellow;
-}
-
-.step-label {
-    font-size: 0.8rem;
-    color: yellow;
-    font-weight: 500;
-    text-align: center;
-    word-break: break-word;
-    padding: 0 0.25rem;
-}
-
-.step.active .step-label {
-    color: yellow;
+    box-shadow: 0 4px 20px #ff0000;
+    padding: 1rem;
+    border: 1px solid #ff0000;
 }
 
 .vehicle-selector {
     background: #000000;
     border-radius: 8px;
-    padding: 1.5rem;
-    border: 1px solid yellow;
+    padding: 1rem;
+    border: 1px solid #ff0000;
 }
 
 .selector-group {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
 
 .select-wrapper {
-    display: flex;
-    flex-direction: column;
     width: 100%;
 }
 
 .select-label {
     font-size: 0.9rem;
     font-weight: 500;
-    color: yellow;
+    color: #ff0000;
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -330,52 +184,44 @@ h1, h2, h3, h4 {
 }
 
 .form-select {
+    width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid #1a1a1a;
     border-radius: 6px;
     font-size: 1rem;
     background-color: #000000;
-    color: yellow;
-    cursor: pointer;
+    color: #ff0000;
     transition: all 0.3s ease;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='yellow' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ff0000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: 16px;
-    width: 100%;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-.form-select:hover {
-    border-color: yellow;
+input.form-select {
+    background-image: none;
 }
 
+.form-select:hover,
 .form-select:focus {
+    border-color: #ff0000;
     outline: none;
-    border-color: yellow;
-    box-shadow: 0 0 0 3px rgba(255, 255, 0, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
 }
 
 .form-select:disabled {
-    background-color: #000000;
-    cursor: not-allowed;
     opacity: 0.5;
-}
-
-.finder-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    cursor: not-allowed;
 }
 
 /* Buttons */
 .btn {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -383,52 +229,185 @@ h1, h2, h3, h4 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    text-decoration: none;
     justify-content: center;
     min-height: 44px;
 }
 
 .btn-primary {
     background-color: #000000;
-    color: yellow;
-    border: 1px solid yellow;
+    color: #ff0000;
+    border: 1px solid #ff0000;
 }
 
 .btn-primary:hover {
-    background-color: #000000;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 255, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
 }
 
 .btn-secondary {
     background-color: #000000;
-    color: yellow;
-    border: 1px solid yellow;
+    color: #ff0000;
+    border: 1px solid #ff0000;
 }
 
 .btn-secondary:hover {
-    background-color: yellow;
+    background-color: #ff0000;
     color: #000000;
 }
 
 .btn-outline {
     background-color: transparent;
-    color: yellow;
-    border: 1px solid yellow;
+    color: #ff0000;
+    border: 1px solid #ff0000;
 }
 
 .btn-outline:hover {
     background-color: #000000;
-    color: yellow;
+    color: #ff0000;
 }
 
 .btn-find {
-    padding: 0.875rem 2rem;
+    padding: 0.875rem 1.5rem;
     font-size: 1rem;
     min-width: 150px;
 }
 
-/* Results Section */
+.finder-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Advanced Toggle */
+.advanced-toggle {
+    position: relative;
+    display: inline-block;
+}
+
+.advanced-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background: #000000;
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    padding: 1rem;
+    min-width: 260px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 640px) {
+    .advanced-panel {
+        right: 0;
+        left: auto;
+    }
+}
+
+/* -----------------------------------------
+   Upsteps Section
+----------------------------------------- */
+.upsteps-section {
+    padding: 2rem 0;
+}
+
+.upsteps-card {
+    background: #000000;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border: 1px solid #ff0000;
+}
+
+.upsteps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.upsteps-card-item {
+    background: #0a0a0a;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upsteps-card-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
+}
+
+.upsteps-tire-size {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ff0000;
+    font-family: "Courier New", monospace;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.upsteps-rim-specs {
+    font-size: 0.9rem;
+    color: #ff0000;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.upsteps-difference {
+    font-size: 0.8rem;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.upsteps-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.oe-badge {
+    background-color: #1a3a1a;
+    color: #88ff88;
+    border: 1px solid #88ff88;
+}
+
+.alt-badge {
+    background-color: #2a2a1a;
+    color: #ffffaa;
+    border: 1px solid #ffffaa;
+}
+
+.loading-options {
+    text-align: center;
+    color: #ff0000;
+    padding: 2rem;
+}
+
+.no-options {
+    text-align: center;
+    color: #ff0000;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* -----------------------------------------
+   Results Section
+----------------------------------------- */
 .results-section {
     padding: 2rem 0;
 }
@@ -437,10 +416,8 @@ h1, h2, h3, h4 {
     background: #000000;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    padding: 1.5rem;
-    max-width: 100%;
-    margin: 0 auto;
-    border: 1px solid yellow;
+    padding: 1rem;
+    border: 1px solid #ff0000;
 }
 
 .vehicle-header {
@@ -449,7 +426,7 @@ h1, h2, h3, h4 {
     gap: 1rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid #ff0000;
     flex-wrap: wrap;
 }
 
@@ -466,7 +443,7 @@ h1, h2, h3, h4 {
 
 .vehicle-icon i {
     font-size: 1.5rem;
-    color: yellow;
+    color: #ff0000;
 }
 
 .vehicle-info {
@@ -481,13 +458,13 @@ h1, h2, h3, h4 {
 }
 
 .vehicle-info p {
-    color: yellow;
+    color: #ff0000;
     font-size: 0.9rem;
 }
 
 .api-status-badge {
     background-color: #000000;
-    color: yellow;
+    color: #ff0000;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.75rem;
@@ -497,7 +474,7 @@ h1, h2, h3, h4 {
     gap: 0.5rem;
     white-space: nowrap;
     flex-shrink: 0;
-    border: 1px solid yellow;
+    border: 1px solid #ff0000;
 }
 
 .api-status-badge i {
@@ -515,13 +492,12 @@ h1, h2, h3, h4 {
     background: #000000;
     border-radius: 8px;
     padding: 1rem;
-    border: 1px solid yellow;
+    border: 1px solid #ff0000;
 }
 
 .primary-spec {
-    grid-column: 1 / -1;
     background: linear-gradient(135deg, #000000 0%, #101010 100%);
-    border: 1px solid yellow;
+    border: 1px solid #ff0000;
 }
 
 .spec-header {
@@ -533,17 +509,12 @@ h1, h2, h3, h4 {
 
 .spec-header i {
     font-size: 1rem;
-    color: yellow;
+    color: #ff0000;
 }
 
 .spec-header h4 {
     font-size: 1rem;
     font-weight: 600;
-}
-
-.primary-spec .spec-header i,
-.primary-spec .spec-header h4 {
-    color: yellow;
 }
 
 .tire-size-display {
@@ -552,7 +523,7 @@ h1, h2, h3, h4 {
     text-align: center;
     margin-bottom: 1rem;
     letter-spacing: 1px;
-    color: yellow;
+    color: #ff0000;
     padding: 0.75rem;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -577,13 +548,13 @@ h1, h2, h3, h4 {
 .breakdown-item .value {
     font-size: 1.2rem;
     font-weight: 700;
-    color: yellow;
+    color: #ff0000;
     margin-bottom: 0.25rem;
 }
 
 .breakdown-item .label {
     font-size: 0.75rem;
-    color: yellow;
+    color: #ff0000;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -599,7 +570,7 @@ h1, h2, h3, h4 {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0;
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid #ff0000;
 }
 
 .spec-item:last-child {
@@ -607,48 +578,24 @@ h1, h2, h3, h4 {
 }
 
 .spec-item .label {
-    color: yellow;
+    color: #ff0000;
     font-size: 0.85rem;
 }
 
 .spec-item .value {
     font-weight: 600;
-    color: yellow;
+    color: #ff0000;
     font-size: 0.9rem;
     font-family: "Courier New", monospace;
-}
-
-.alternate-sizes-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem 0;
-}
-
-.alternate-sizes-list li {
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
-    border-left: 3px solid yellow;
-    font-family: "Courier New", monospace;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.alternate-note {
-    font-size: 0.75rem;
-    color: yellow;
-    font-style: italic;
-    text-align: center;
 }
 
 .results-actions {
     display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid yellow;
     flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ff0000;
 }
 
 .results-actions .btn {
@@ -657,12 +604,14 @@ h1, h2, h3, h4 {
     max-width: 200px;
 }
 
-/* Footer */
+/* -----------------------------------------
+   Footer
+----------------------------------------- */
 .main-footer {
     background: #000000;
-    color: yellow;
+    color: #ff0000;
     padding: 2rem 0 1rem;
-    border-top: 1px solid yellow;
+    border-top: 1px solid #ff0000;
     margin-top: 2rem;
 }
 
@@ -683,7 +632,7 @@ h1, h2, h3, h4 {
 }
 
 .footer-description {
-    color: yellow;
+    color: #ff0000;
     font-size: 0.9rem;
     line-height: 1.6;
     max-width: 100%;
@@ -694,7 +643,7 @@ h1, h2, h3, h4 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: yellow;
+    color: #ff0000;
 }
 
 .footer-links {
@@ -711,7 +660,7 @@ h1, h2, h3, h4 {
 }
 
 .footer-links a {
-    color: yellow;
+    color: #ff0000;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
@@ -723,14 +672,14 @@ h1, h2, h3, h4 {
 }
 
 .footer-links a:hover {
-    color: #f30505;
+    color: #ff0000;
 }
 
 .api-status-footer {
     background: #000000;
     padding: 1rem;
     border-radius: 6px;
-    border: 1px solid yellow;
+    border: 1px solid #ff0000;
     max-width: 300px;
     margin: 0 auto;
 }
@@ -746,35 +695,56 @@ h1, h2, h3, h4 {
 .status-dot {
     width: 8px;
     height: 8px;
-    background-color: yellow;
+    background-color: #ff0000;
     border-radius: 50%;
 }
 
 .status-note {
     font-size: 0.8rem;
-    color: yellow;
+    color: #ff0000;
     text-align: center;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 1.5rem;
-    border-top: 1px solid yellow;
-    color: yellow;
+    border-top: 1px solid #ff0000;
+    color: #ff0000;
     font-size: 0.875rem;
 }
 
 .footer-disclaimer {
     margin-top: 0.5rem;
     font-size: 0.75rem;
-    color: yellow;
+    color: #ff0000;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 0 1rem;
 }
 
-/* Loading Overlay */
+/* -----------------------------------------
+   Help Tooltip
+----------------------------------------- */
+.help-tip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 6px;
+    background: #333;
+    color: #ff0000;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: help;
+    border: 1px solid #ff0000;
+}
+
+/* -----------------------------------------
+   Loading Overlay & Info Message
+----------------------------------------- */
 .loading-overlay {
     position: fixed;
     top: 0;
@@ -793,7 +763,7 @@ h1, h2, h3, h4 {
 .loading-spinner {
     width: 40px;
     height: 40px;
-    border: 3px solid yellow;
+    border: 3px solid #ff0000;
     border-top: 3px solid #000000;
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -806,22 +776,21 @@ h1, h2, h3, h4 {
 }
 
 .loading-overlay p {
-    color: yellow;
+    color: #ff0000;
     font-weight: 500;
     font-size: 1rem;
     text-align: center;
 }
 
-/* Info Message Styles */
 .info-message {
     position: fixed;
     top: 20px;
     right: 20px;
     background: #000;
-    color: yellow;
+    color: #ff0000;
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid yellow;
+    border: 1px solid #ff0000;
     z-index: 10000;
     max-width: 300px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -847,7 +816,7 @@ h1, h2, h3, h4 {
 .info-message-close {
     background: none;
     border: none;
-    color: yellow;
+    color: #ff0000;
     cursor: pointer;
     padding: 0;
     margin: 0;
@@ -865,52 +834,71 @@ h1, h2, h3, h4 {
     }
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* -----------------------------------------
+   Media Queries (Mobile First)
+----------------------------------------- */
+@media (min-width: 480px) {
+    .container {
+        padding: 0 1.5rem;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .section-title {
+        font-size: 2rem;
+    }
+    .finder-card,
+    .upsteps-card,
+    .results-card {
+        padding: 1.5rem;
+    }
+    .vehicle-selector {
+        padding: 1.5rem;
     }
 }
 
-/* Responsive Design */
+@media (min-width: 640px) {
+    .selector-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .select-wrapper {
+        flex: 1;
+        min-width: 150px;
+    }
+    .upsteps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (min-width: 768px) {
     .section-title {
         font-size: 2.5rem;
     }
-    
-    .selector-group {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
     .specifications-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
-    
     .tire-size-display {
         font-size: 2rem;
     }
-    
     .size-breakdown {
         grid-template-columns: repeat(4, 1fr);
     }
-    
     .footer-content {
         grid-template-columns: repeat(3, 1fr);
         text-align: left;
     }
-    
     .footer-section {
         text-align: left;
     }
-    
     .footer-links {
         align-items: flex-start;
+    }
+    .footer-section .logo {
+        justify-content: flex-start;
+        margin: 0 0 1rem;
+    }
+    .api-status-footer {
+        margin: 0;
     }
 }
 
@@ -919,25 +907,17 @@ h1, h2, h3, h4 {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
     }
-    
     .tire-size-display {
         font-size: 2.5rem;
     }
-}
-
-@media (hover: none) and (pointer: coarse) {
-    .btn {
-        min-height: 48px;
-        padding: 0.875rem 1.5rem;
-    }
-    
-    .form-select {
-        min-height: 48px;
-        padding: 0.875rem 1rem;
+    .upsteps-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Print Styles */
+/* -----------------------------------------
+   Print & Reduced Motion
+----------------------------------------- */
 @media print {
     .main-header,
     .main-footer,
@@ -946,12 +926,10 @@ h1, h2, h3, h4 {
     .loading-overlay {
         display: none !important;
     }
-    
     body {
         background: white;
         color: black;
     }
-    
     .results-card {
         box-shadow: none;
         border: 1px solid #ccc;
@@ -960,18 +938,15 @@ h1, h2, h3, h4 {
     }
 }
 
-/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-    
     .btn:hover {
         transform: none;
     }
-    
     .loading-spinner {
         animation: none;
     }
